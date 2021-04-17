@@ -17,19 +17,22 @@ function Home(props) {
             </div>
         </div>
     );
+
 }
 
-
-function RenderCard({item}) {
-    return (
-        <Card>
-            <CardImg src={item.image} alt={item.name} />
-            <CardBody>
-                <CardTitle>{item.name}</CardTitle>
-                <CardText>{item.description}</CardText>
-            </CardBody>
-        </Card>
-    );
+function RenderCard({ item }) {
+    if (item) {
+        return (
+            <Card>
+                <CardImg src={item.image} alt={item.name} />
+                <CardBody>
+                    <CardTitle>{item.name}</CardTitle>
+                    <CardText>{item.description}</CardText>
+                </CardBody>
+            </Card>
+        );
+    }
+    return <div />
 }
 
-export default Home;  
+export default Home;
