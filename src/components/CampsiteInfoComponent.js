@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -53,7 +53,6 @@ function RenderComments({ comments }) {
 
 function CampsiteInfo(props) {
     if (props.campsite) { //if there is a campsite, return a div with className of row
-        console.log(comments);
         return (
             <div className="container">
                 <div className="row">
