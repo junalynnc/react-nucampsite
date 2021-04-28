@@ -77,6 +77,7 @@ class CommentForm extends Component {
                 <Button outline onClick={this.toggleModal}>
                     <i className="fa fa-pencil fa-lg" /> Submit Comment
                 </Button>
+                
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                     <ModalBody>
