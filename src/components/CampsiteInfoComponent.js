@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, Breadcrumb, Button, BreadcrumbItem, Modal, ModalHeader, ModalBody, Label } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
-const maxLength = len => val => !val || (val.length <= len);
+const maxLength = len => val => !(val) || (val.length <= len);
 const minLength = len => val => val && (val.length >= len);
 
 function RenderCampsite({ campsite }) {
     return (
-        <div className='col-md-5 m-1'>
+        <div className="col-md-5 m-1">
             <FadeTransform
                 in
                 transformProps={{
@@ -31,7 +31,7 @@ function RenderCampsite({ campsite }) {
 function RenderComments({ comments, postComment, campsiteId }) {
     if (comments) {
         return (
-            <div className='col-md-5 m-1'>
+            <div className="col-md-5 m-1">
                 <h4>Comments</h4>
                 <Stagger in>
                     {
@@ -59,7 +59,7 @@ function RenderComments({ comments, postComment, campsiteId }) {
             </div>
         );
     }
-    return <div />
+    return <div />;
 }
 
 class CommentForm extends Component {
@@ -67,7 +67,7 @@ class CommentForm extends Component {
         super(props);
         this.state = {
             isModalOpen: false
-        }
+        };
         this.toggleModal = this.toggleModal.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -179,6 +179,7 @@ function CampsiteInfo(props) {
                     </div>
                 </div>
                 <div className="row">
+                    <RenderCampsite campsite={props.campsite} />
                     <RenderComments
                         comments={props.comments}
                         postComment={props.postComment}
@@ -188,7 +189,7 @@ function CampsiteInfo(props) {
             </div>
         );
     }
-    return <div />
+    return <div />; 
 }
 
 export default CampsiteInfo;
