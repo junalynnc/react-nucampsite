@@ -70,7 +70,11 @@ class Contact extends Component {
 
                 <div className="row row-content">
                     <div className="col-12">
-                        <h2>Send us your Feedback</h2>
+                        <Loop>
+                            <Fade>
+                                <h2>Send us your Feedback</h2>
+                            </Fade>
+                        </Loop>
                         <hr />
                     </div>
                     <div className="col-md-10">
