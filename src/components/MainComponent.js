@@ -24,7 +24,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     postComment: (campsiteId, rating, author, text) => (postComment(campsiteId, rating, author, text)),
     fetchCampsites: () => (fetchCampsites()),
-    resetFeedbackForm: () => (actions.reset('feedbackForm')),
+    resetFeedbackForm: () => actions.reset('feedbackForm'),
     fetchComments: () => (fetchComments()),
     fetchPromotions: () => (fetchPromotions()),
     fetchPartners: () => (fetchPartners()),
@@ -52,7 +52,7 @@ class Main extends Component {
                     promotionErrMess={this.props.promotions.errMess}
                     partner={this.props.partners.partners.filter(partner => partner.featured)[0]} //partners.partners = points to partners state and the partners array
                     partnerLoading={this.props.partners.isLoading}
-                    promotionErrMess={this.props.partners.errMess}
+                    partnerErrMess={this.props.partners.errMess}
                 />
             );
         };
@@ -80,7 +80,14 @@ class Main extends Component {
                             <Route exact path='/directory' render={() => <Directory campsites={this.props.campsites} />} />
                             <Route path='/directory/:campsiteId' component={CampsiteWithId} />
                             <Route exact path='/aboutus' render={() => <About partners={this.props.partners} />} />
-                            <Route exact path='/contactus' render={() => <Contact contacts={this.props.contacts} />} />
+                            <Route exact path='/contactus'
+                                render={() => (
+                                    <Contact
+                                        resetFeedbackForm={this.props.resetFeedbackForm}
+                                        postFeedback={this.props.postFeedback}
+                                    />
+                                )}
+                            />
                             <Redirect to='/home' />
                         </Switch>
                     </CSSTransition>
